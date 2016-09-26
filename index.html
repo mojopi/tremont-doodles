@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+
+	#ghost{
+		width:1200px;
+		height:800px;
+		background-image:url(ghost-plant.jpg);
+		background-repeat: no-repeat;
+		background-image: contain;
+/*		background-color:yellow;
+*/		padding-left:20px;}
+
+p{font-family:calibri;
+
+}
+
+#tinymushtext {position:relative;
+	top:30%;
+	color:#9400D3;
+}
+	#ghosttext{font-family:calibri;
+		position:relative;
+		top:50%;
+		color:#D8D8D8;}
+
+		#tinymushroom{
+				padding-left:10px;
+
+			cursor: none;
+			background-image:url(mushroom7.jpg);
+			width:1200px;
+			height:800px;
+			background-repeat: no-repeat;
+			background-size: cover;
+			z-index: -10;
+			transition:2s;
+		}
+
+		#tinymushroom:hover{
+			background-image: url(http://www.conserve-energy-future.com/wp-content/uploads/2015/03/coral-reefs-e1426507009531.jpg);
+		}
+
+		#cursor {
+			width:400px;
+			height: 200px;
+			background-size: contain;
+			position:relative;
+			background-image: url(fish.png);
+			z-index: 1;
+
+		}
+
+#timelapse1 {
+	width:40%;
+	margin-right:50px;
+}
+#timelapse2 {
+	width:40%;
+		margin-left:50px;
+
+}
+
+.film{
+	margin-top:50px;
+}
+		
+	/*	video{
+			-webkit-filter:hue-rotate(70deg);
+		}*/
+	</style>
+</head>
+<body>
+
+
+<video class="film" controls autoplay id='snailloop' src="snail2.m4v"></video>
+
+<audio  autoplay controls id="beat" src="mirrors.mp3"></audio>
+
+<video class="film" autoplay controls id='eyes' src="snail-in-out.m4v"></video>
+
+<video class="film" autoplay controls loop id='timelapse1' src="timelapse1.m4v"></video>
+
+<video  class="film" autoplay controls loop id='timelapse2' src="timelapse2.m4v"></video>
+
+<video  class="film" autoplay controls loop src="snail1.m4v"></video>
+
+
+
+<!--     	<div id="cursor"></div>
+ -->
+    <div id="tinymushroom">
+    <p id="tinymushtext">Why do fungal and coral morphology look so similar?</p>
+
+    </div>
+
+
+<br><br>
+
+<div id="ghost">
+	
+	<p id="ghosttext">
+It lives in the dark <br>
+Sucking life<br>
+Through fungal straws <br>
+degrading woody corpses.<br><br><br>
+
+Part squid? <br> 
+Part mushroom?<br>
+Petals? <br> Leaves?<br>
+It's a ghost. <br> An ecological shadow of it's relatives.<br>
+It prays on the bodies of its evolutionary cousins.<br>
+Like us.
+</p>
+
+</div>
+
+<script type="text/javascript">
+	
+// var snailcrawl = document.getElementById("snailcrawl");
+
+var song = document.getElementById("beat");
+  // song.play();
+var snailloop = document.querySelector('#snailloop');
+snailloop.addEventListener('ended', function () {
+  // console.count('loop restart');
+  this.play();
+  snailloop.style.webkitFilter = "hue-rotate(" + Math.floor(Math.random() * 360) + "deg)";
+ 
+})
+
+var ghost = document.getElementById("ghost");
+ghost.addEventListener("mousemove", function(event){
+	ghost.style.webkitFilter = "grayscale(" + event.x/1200 * 100 + "%)";
+	console.log(event.x/1200 * 100);
+});
+
+var tinymushroom = document.querySelector("#tinymushroom");
+// tinymushroom.addEventListener("mouse")
+
+
+// 	function moveAndPositionCursorImage () {
+// 	cursor.addEventListener("mousemove", function(event) {
+//                 cursor.style.top = event.y - (parseInt(cursor.style.width)/2)  + "px";
+//                 cursor.style.left = event.x - (parseInt(cursor.style.width)/2) + "px";
+//             })
+// };
+
+// moveAndPositionCursorImage ();
+    
+
+    function makeSquare (x) {
+
+            var square = document.createElement('div');
+                        document.body.appendChild(square);
+            square.style.width = "300px";
+            square.style.height = "300px";
+            square.style.display = "inline-block";
+            square.style.margin = "10px";
+            square.style.backgroundRepeat = "no-repeat";
+            square.style.border = "1px";
+            // square.style.backgroundColor = "green";
+
+            square.style.backgroundImage = "url(./gallerypics/" + x + ".jpg)";
+
+            square.style.backgroundSize = "contain";
+            square.style.id = "square" + x;};
+
+
+    for (var i = 1; i < 18; i++) 
+    { makeSquare(i);}
+
+
+// mycena haematopus
+// http://www.mushroomexpert.com/mycena_haematopus.html
+
+</script>
+</body>
+</html>
